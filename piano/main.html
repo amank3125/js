@@ -8,12 +8,40 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="C"><a>C</a></div>
-    <div class="D"><a>D</a></div>
-    <div class="E"><a>E</a></div>
-    <div class="F"><a>F</a></div>
-    <div class="G"><a>G</a></div>
-    <div class="A"><a>A</a></div>
-    <div class="B"><a>B</a></div>
+<div id="main" class="main" tabindex="0" onkeypress="displayKey()">
+    
+<div class="board">
+    <div class="wk C" id="key"><a>C</a></div>
+    <div class="bk C" id="key"><a>C#</a></div>
+    <div class="wk D" id="key"><a>D</a></div>
+    <div class="bk D" id="key"><a>D#</a></div>
+    <div class="wk E" id="key"><a>E</a></div>
+    <div class="wk F" id="key"><a>F</a></div>
+    <div class="bk F" id="key"><a>F#</a></div>
+    <div class="wk G" id="key"><a>G</a></div>
+    <div class="bk G" id="key"><a>G#</a></div>
+    <div class="wk A" id="key"><a>A</a></div>
+    <div class="bk A" id="key"><a>A#</a></div>
+    <div class="wk B" id="key"><a>B</a></div>
+</div>
+    <div class="keyDisplay"><a class="showKey" ></a></div>
+</div> 
+
+<!-- Sounds -->
+    <audio src="./sounds/C.wav" id="C"></audio>
+    <audio src="./sounds/C#.wav" id="C#"></audio>
+    <audio src="./sounds/D.wav" id="D"></audio>
+    <audio src="./sounds/D#.wav" id="D#"></audio>
+    <audio src="./sounds/E.wav" id="E"></audio>
+    <audio src="./sounds/F.wav" id="F"></audio>
+    <audio src="./sounds/F#.wav" id="F#"></audio>
+    <audio src="./sounds/G.wav" id="G"></audio>
+    <audio src="./sounds/G#.wav" id="G#"></audio>
+    <audio src="./sounds/A.wav" id="A"></audio>
+    <audio src="./sounds/A#.wav" id="A#"></audio>
+    <audio src="./sounds/B.wav" id="B"></audio>
+
+
+<script src="js.js"></script>
 </body>
 </html>
