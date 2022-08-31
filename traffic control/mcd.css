@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'digital-7';
+    src: url('./fonts/digital-7.ttf');
+}
+body {
+    margin:0;
+    padding: 0;
+    color: red;
+    font-weight: 800;
+    font-size: 32px;
+    font-family: 'digital-7';
+    letter-spacing: 8px;
+    text-transform: uppercase;
+}
+button {
+    position: relative;
+    display: flex;
+    margin-top:5px ;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    background-color: black;
+
+}
+.pole {
+    padding-left:50vw;
+    justify-items: center;
+}
+.timer-frame {
+    padding: 25px 5px 0px 5px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+}
+/* .red {
+
+    background-color: red;
+}
+.yellow {
+    background-color: yellow;
+}
+.green {
+    background-color: green;
+} */
+.label {
+    font-size: 16px;
+    position: initial;
+    display:inline-flex;
+}
