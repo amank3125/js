@@ -1,0 +1,51 @@
+body {
+    background-color: #3b3b3b;
+}
+
+div.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(120deg, yellowgreen,yellow);
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    height: 80px;
+}
+.decimals {
+    width: 50px;
+    text-align: center;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid black;
+}
+#design {
+    margin-top: 10px;
+    width: 80px;
+    height: 20px;
+    outline: none;
+    border: none;
+    transition: 0.2s ease-in-out;
+    border-radius: 3px;
+    background-color: transparent;
+    margin-left: 8px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 30px;
+}
+#design:hover {
+    box-shadow: 5px 0px 10px rgb(0, 0, 0,0.2);
+    transform: scale(1.15);
+    border-radius: 10px;
+    backdrop-filter: blur(1);
+}
+.price {
+    display: block;
+    position: absolute;
+    margin-top: -22px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+
+}
+
