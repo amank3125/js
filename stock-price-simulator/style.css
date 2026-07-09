@@ -1,0 +1,311 @@
+:root {
+    --bg-top: #0b1020;
+    --bg-bottom: #141b2e;
+    --card: rgba(255, 255, 255, 0.06);
+    --card-border: rgba(255, 255, 255, 0.10);
+    --text: #f4f6fb;
+    --muted: #8b93a7;
+    --up: #30d158;      /* iOS green */
+    --down: #ff453a;    /* iOS red */
+    --accent: #0a84ff;  /* iOS blue */
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: var(--font);
+    color: var(--text);
+    background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 28px 16px 40px;
+}
+
+.app {
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.app-header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+/* ---- Cards ---- */
+.price-card,
+.holdings,
+.slider-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 22px;
+    padding: 22px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+/* ---- Big animated price display ---- */
+.price-card {
+    text-align: center;
+    padding: 30px 22px;
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.price-card.up {
+    box-shadow: 0 0 40px rgba(48, 209, 88, 0.25);
+    border-color: rgba(48, 209, 88, 0.4);
+}
+
+.price-card.down {
+    box-shadow: 0 0 40px rgba(255, 69, 58, 0.25);
+    border-color: rgba(255, 69, 58, 0.4);
+}
+
+.price-label {
+    color: var(--muted);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.price-value {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 4px;
+    margin: 10px 0 12px;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.price-value .currency {
+    font-size: 34px;
+    font-weight: 600;
+    opacity: 0.85;
+}
+
+.price-value .digits {
+    font-size: 62px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    line-height: 1;
+}
+
+.price-card.up .price-value { color: var(--up); }
+.price-card.down .price-value { color: var(--down); }
+
+.price-card.bump .price-value { transform: scale(1.04); }
+
+.price-change {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    transition: color 0.25s ease, background 0.25s ease;
+}
+
+.price-card.up .price-change {
+    color: var(--up);
+    background: rgba(48, 209, 88, 0.12);
+}
+
+.price-card.down .price-change {
+    color: var(--down);
+    background: rgba(255, 69, 58, 0.12);
+}
+
+.arrow { font-size: 12px; transition: transform 0.2s ease; }
+.price-card.down .arrow { transform: rotate(180deg); }
+
+/* ---- Holdings ---- */
+.holdings {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 22px;
+}
+
+.holding-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+}
+
+.holding-row + .holding-row {
+    border-top: 1px solid var(--card-border);
+}
+
+.holding-row label,
+.holding-row > span:first-child {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+#qtyInput {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 17px;
+    font-weight: 600;
+    text-align: right;
+    padding: 8px 14px;
+    width: 130px;
+    outline: none;
+    transition: border-color 0.2s ease;
+    font-variant-numeric: tabular-nums;
+}
+
+#qtyInput:focus {
+    border-color: var(--accent);
+}
+
+.holding-row.total .position-value {
+    font-size: 20px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---- iOS native slider (clock style) ---- */
+.slider-card {
+    padding: 22px;
+}
+
+.slider-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 18px;
+}
+
+.slider-title {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.slider-readout {
+    font-size: 18px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.ios-slider {
+    position: relative;
+    height: 34px;
+    display: flex;
+    align-items: center;
+}
+
+.ios-track {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.18);
+    overflow: hidden;
+}
+
+.ios-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 25%;
+    background: var(--accent);
+    border-radius: 3px;
+}
+
+/* The real range input sits on top, transparent, for native drag behavior */
+.ios-slider input[type="range"] {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    background: transparent;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 34px;
+    cursor: pointer;
+}
+
+.ios-slider input[type="range"]:focus {
+    outline: none;
+}
+
+/* iOS "clock style" thumb: white circle with subtle shadow + tick face */
+.ios-slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 50% 50%, #ffffff 0%, #ffffff 62%, #eef1f6 63%, #eef1f6 100%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    border: none;
+    margin-top: 0;
+    transition: transform 0.12s ease;
+}
+
+.ios-slider input[type="range"]:active::-webkit-slider-thumb {
+    transform: scale(1.12);
+}
+
+.ios-slider input[type="range"]::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    border: none;
+    cursor: pointer;
+}
+
+.ios-slider input[type="range"]::-webkit-slider-runnable-track {
+    background: transparent;
+    height: 34px;
+}
+
+.ios-slider input[type="range"]::-moz-range-track {
+    background: transparent;
+    height: 34px;
+}
+
+.slider-scale {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+}

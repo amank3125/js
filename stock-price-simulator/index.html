@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Stock Price Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <header class="app-header">
+            <h1>Stock Simulator</h1>
+            <p class="subtitle">Drag the slider to move the market</p>
+        </header>
+
+        <!-- Big animated price display -->
+        <section class="price-card" id="priceCard">
+            <span class="price-label">Current Price</span>
+            <div class="price-value">
+                <span class="currency">$</span>
+                <span class="digits" id="priceDigits" aria-live="polite">0.00</span>
+            </div>
+            <div class="price-change" id="priceChange">
+                <span class="arrow" id="changeArrow">▲</span>
+                <span id="changeAmount">0.00</span>
+                <span id="changePercent">(0.00%)</span>
+            </div>
+        </section>
+
+        <!-- Holdings value -->
+        <section class="holdings">
+            <div class="holding-row">
+                <label for="qtyInput">Stocks Qty</label>
+                <input type="text" inputmode="numeric" id="qtyInput" placeholder="0" autocomplete="off">
+            </div>
+            <div class="holding-row total">
+                <span>Position Value</span>
+                <span class="position-value" id="positionValue">$0.00</span>
+            </div>
+        </section>
+
+        <!-- iOS native style slider (clock style thumb) -->
+        <section class="slider-card">
+            <div class="slider-head">
+                <span class="slider-title">Current Price</span>
+                <span class="slider-readout" id="sliderReadout">$0.00</span>
+            </div>
+            <div class="ios-slider" id="iosSlider">
+                <div class="ios-track">
+                    <div class="ios-fill" id="iosFill"></div>
+                </div>
+                <input type="range" id="priceSlider" min="0" max="1000" value="250" step="0.5">
+            </div>
+            <div class="slider-scale">
+                <span>$0</span>
+                <span>$500</span>
+                <span>$1000</span>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
